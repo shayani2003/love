@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I LOVE YOU BEBU</title>
+    <script>
+       onload = function () {
+            var d = document;
+            // フェードイン
+            function feedin (feed, speed) {
+                var filter = 0;
+                feed.style.opacity = 0;
+            
+                feed.style.MozOpacity = 0;
+                var timer = setInterval(function () {
+                    filter ++;
+                    feed.style.opacity = (filter / 10);
+                    feed.style.MozOpacity = (filter / 100);
+                    if (filter == 100) {
+                        clearInterval(timer);
+                    } 
+                },speed);
+            }
+            // I LOVE YOU BEBU
+            var str = [
+            [52,53,54,104,155,206,256,257,258],
+            [56,107,158,209,260,261,262],
+            [60,111,162,213,264,265,266,215,164,113,62,61],
+            [64,115,166,217,269,219,168,117,66],
+            [68,69,70,119,170,171,172,221,272,273,274],
+            [72,123,174,175,176,125,74,226,277],
+            [76,127,178,229,280,281,282,231,180,129,78,77],
+            [80,131,182,233,284,285,286,235,184,133,82],
+            [84,135,186,237,288,289,290,239,187,188,137,86,85],
+            [88,89,90,139,190,191,192,241,292,293,294],
+            [92,143,194,245,296,297,298,247,195,196,145,93,94],
+            [96,147,198,249,300,301,302,251,200,149,98]
+                
+            ];
+            // ブロック表示
+            for (i=0;i<357;i++) {
+                var box = d.createElement('div');
+                with (d.body.appendChild(box).style) {
+                    if (i % 51 == 0) { clear = 'both'; }
+                    border = 'solid #666 1px';
+                    width = '20px';
+                    height = '20px';
+                    margin = '2px';
+                    float = 'left';
+                } 
+                      
+
+
+            }
+            // メッセージ表示
+            var mess = d.getElementsByTagName('div');
+            var i = 0, j = 0;
+            setInterval(function () {
+                feedin(mess[str[i][j]], 900);
+                mess[str[i][j]].style.background = '#FF0000'
+                j++;
+                if (i == str.length) { clearInterval(timer); }
+                if (j == str[i].length) { i++; j = 0; }
+            }, 50);
+        } 
+    </script>
+</head>
+<body>
+</body>
+</html>
